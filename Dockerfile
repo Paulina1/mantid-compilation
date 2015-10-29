@@ -17,8 +17,8 @@ RUN wget http://netcologne.dl.sourceforge.net/project/mantid/developer/mantid-de
     && git clone https://github.com/mantidproject/mantid.git /opt/Mantid
 
 
-RUN (cd /opt/Mantid/Code/Mantid && cmake .)
-RUN make -C /opt/Mantid/Code/Mantid
+RUN (cd /opt/Mantid && cmake .)
+RUN make -C /opt/Mantid
 
 # Replace 1000 with your user / group id
 RUN export uid=1000 gid=1000 && \
@@ -31,4 +31,4 @@ RUN export uid=1000 gid=1000 && \
 
 USER developer
 ENV HOME /home/docker_gui
-CMD /opt/Mantid/Code/Mantid/bin/MantidPlot
+CMD /opt/Mantid/bin/MantidPlot
